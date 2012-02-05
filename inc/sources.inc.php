@@ -35,5 +35,12 @@ $GLOBALS[sources][$filename][fields][$cnt++] = "MB Archive";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Total";
 $GLOBALS[sources][$filename][fields][$cnt++] = "Account Status";
 
+# Zimbra Account Usage Report
+$filename = "gabiUrls.inc.php"; $cnt = 0;
+$GLOBALS[sources][$filename][name] = "Gabi Urls";
+$GLOBALS[sources][$filename][fields][$cnt++] = "User";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Date";
+$GLOBALS[sources][$filename][fields][$cnt++] = "URL";
+
 
 ?>
