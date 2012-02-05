@@ -3,8 +3,7 @@
 # CSV Output
 
 # Settings
-$GLOBALS[csv_path] = "csv/";
-$GLOBALS[author] = "oXiVanisher";
+require_once("inc/settings.inc.php");
 
 # Load saved svc file settings
 require_once("inc/sources.inc.php");
@@ -53,9 +52,9 @@ require_once("inc/functions.inc.php");
 					<a class="brand" href="index.php">CSV Viewer</a>
 					<ul class="nav">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Choose File</a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports</a>
 							<ul class="dropdown-menu">
-								<?php echo renderNav(); ?>
+								<?php echo renderReportsNav(); ?>
 							</ul>
 						</li>
 					</ul>
@@ -67,15 +66,21 @@ require_once("inc/functions.inc.php");
 		<div class="tabbable tabs-below">
 			<div class="tab-content" id="content">
 			<?php
-				if ($_GET[file] == "") {
-					echo "<ul>" . renderNav() . "</ul>";
+				if (strrpos($_GET[file], ".csv") > 1) {
+					echo renderTable(loadCsv($_GET[file]));
+				} elseif (strrpos($_GET[file], ".inc.php") > 1) {
+					require_once($GLOBALS[reports_path] . "/" . $_GET[file]);
+					echo renderTable(runReport());
 				} else {
-					echo renderTable($_GET[file]);
+					echo "<h2>CSV Files:</h2>";
+					echo "<ul>" . renderCsvNav() . "</ul>";
+					echo "<br /><br /><h2>Reports</h2>";
+					echo "<ul>" . renderReportsNav() . "</ul>";
 				}
 			?>
 			</div>
 			<ul class="nav nav-tabs">
-				<?php echo renderNav(); ?>
+				<?php echo renderCsvNav(); ?>
 			</ul>
 			</div>
 		</div>
