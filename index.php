@@ -7,10 +7,10 @@ $GLOBALS[csv_path] = "csv/";
 $GLOBALS[author] = "oXiVanisher";
 
 # Load saved svc file settings
-require_once("sources.inc.php");
+require_once("inc/sources.inc.php");
 
 # Load PHP functions
-require_once("functions.inc.php");
+require_once("inc/functions.inc.php");
 
 # Rendering of the HTML content begins here
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
