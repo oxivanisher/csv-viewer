@@ -2,7 +2,7 @@ var oTable = undefined;
 var asInitVals = new Array();
 
 function resize_view() {
-	var ciHeight = $(window).height() - 40 - 33 - 18 - 37;
+	var ciHeight = $(window).height() - 40 - 48 - 18 - 37;
 		/* head, tabs, paginate, offset */
 	var ciAmount = Math.ceil((ciHeight - 180) / 35);
 		/* height - 100 / lineheight */

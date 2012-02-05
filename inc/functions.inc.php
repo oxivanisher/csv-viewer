@@ -48,7 +48,7 @@ function renderCsvNav() {
 			} else {
 				$active = "";
 			}
-			$ret .= "<li " . $active . "><a href='?file=" . $file . "'>" . $name . "</a></li>";
+			$ret .= "<li " . $active . "><a href='?file=" . $file . "'>" . $name . "<br />" . date ("d.m.y H:i", filemtime($GLOBALS[csv_path] . "/" . $file)) . "</a></li>";
 		}
 	}
 	if (! $ret) {
