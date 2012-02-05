@@ -1,0 +1,13 @@
+CSV Viewer
+
+This tool allows you to view CSV files very easy. You can also create reports for your csv files.
+
+Author: Marc Urben
+
+Used Libs/Tools:
+http://twitter.github.com/bootstrap/
+http://jquery.com
+http://php.net
+http://www.vim.org/
+http://findicons.com/search/csv#
+http://datatables.net/
