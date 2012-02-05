@@ -72,7 +72,7 @@ require_once("inc/functions.inc.php");
 					require_once($GLOBALS[reports_path] . "/" . $_GET[file]);
 					echo renderTable(runReport());
 				} else {
-					echo "<h2>CSV Files:</h2>";
+					echo "<h2>Files:</h2>";
 					echo "<ul>" . renderCsvNav() . "</ul>";
 					echo "<br /><br /><h2>Reports</h2>";
 					echo "<ul>" . renderReportsNav() . "</ul>";
