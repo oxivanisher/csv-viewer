@@ -1,12 +1,26 @@
 <?php
+$GLOBALS[accountReport][search] = "accountusage-";
 
 function runReport() {
+	$finalRet = array();
+
+	foreach (getFilelist($GLOBALS[csv_path], ".csv") as $file) {
+		if (strrpos($file, $GLOBALS[accountReport][search]) > -1) {
+			$tmpRet = processFile($file);
+			$finalRet = array_merge($finalRet, $tmpRet);
+		}
+	}
+	return $finalRet;
+}
+
+function processFile($file) {
 	$ret = null;
-	$source = loadCsv("accountusage.csv");
 	$archiveDb = "";
 	$accountDb = "";
-	
-	foreach ($source as $row) {
+
+	$serverName = str_replace(".csv", "", str_replace($GLOBALS[accountReport][search], "", $file));
+
+	foreach (loadCsv($file) as $row) {
 		$colCnt = 0;
 		list($user, $domain) = split("@", $row[0]);
 		if (strrpos($domain, ".archive") > 0) {
@@ -53,7 +67,7 @@ function runReport() {
 		$ret[$rowCnt][3] = $domainMbquota;
 		$ret[$rowCnt][4] = $domainMbarchive;
 		$ret[$rowCnt][5] = $domainMbused + $domainMbarchive;
-		$ret[$rowCnt][6] = "Total";
+		$ret[$rowCnt][6] = "Total (on " . $serverName . ")";
 
 		$rowCnt++;
 	}
