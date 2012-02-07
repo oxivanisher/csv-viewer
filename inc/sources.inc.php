@@ -31,6 +31,7 @@ $GLOBALS[sources][$filename][fields][$cnt++] = "Domain";
 $GLOBALS[sources][$filename][fields][$cnt++] = "User";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Used";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Quota";
+$GLOBALS[sources][$filename][fields][$cnt++] = "% Quota";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Archive";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Total";
 $GLOBALS[sources][$filename][fields][$cnt++] = "Account Status";
