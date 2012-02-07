@@ -34,7 +34,7 @@ $GLOBALS[sources][$filename][fields][$cnt++] = "MB Quota";
 $GLOBALS[sources][$filename][fields][$cnt++] = "% Quota";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Archive";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Total";
-$GLOBALS[sources][$filename][fields][$cnt++] = "Account Status";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Status";
 
 # Zimbra Account Usage Report
 $filename = "gabiUrls.inc.php"; $cnt = 0;

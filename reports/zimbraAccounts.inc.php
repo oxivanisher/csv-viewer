@@ -31,7 +31,7 @@ function processFile($file) {
 			$accountDb[$domain][$user][mbused] = $row[1];
 			$accountDb[$domain][$user][mbquota] = $row[2];
 			$accountDb[$domain][$user][percentquota] = round(100 / $row[2] * $row[1]);
-			$accountDb[$domain][$user][accstatus] = $row[3];
+			$accountDb[$domain][$user][accstatus] = str_replace(" account)", "", str_replace("(", "", $row[3]));
 		}
 	}	
 
@@ -64,13 +64,13 @@ function processFile($file) {
 		}
 
 		$ret[$rowCnt][0] = $domain;
-		$ret[$rowCnt][1] = "&nbsp;";
+		$ret[$rowCnt][1] = "on " . $serverName;
 		$ret[$rowCnt][2] = $domainMbused;
 		$ret[$rowCnt][3] = $domainMbquota;
 		$ret[$rowCnt][4] = round(100 / $domainMbquota * $domainMbused);
 		$ret[$rowCnt][5] = $domainMbarchive;
 		$ret[$rowCnt][6] = $domainMbused + $domainMbarchive;
-		$ret[$rowCnt][7] = "Total (on " . $serverName . ")";
+		$ret[$rowCnt][7] = "Total";
 
 		$rowCnt++;
 	}
