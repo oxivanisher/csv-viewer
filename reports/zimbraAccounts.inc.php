@@ -57,7 +57,7 @@ function processFile($file) {
 			$domainMbquota = $domainMbquota + $ret[$rowCnt][3];
 			$domainMbarchive = $domainMbarchive + $ret[$rowCnt][4];
 			
-			$ret[$rowCnt][6] = $ret[$rowCnt][2] + $ret[$rowCnt][4];
+			$ret[$rowCnt][6] = $ret[$rowCnt][2] + $ret[$rowCnt][5];
 			$ret[$rowCnt][7] = $userData[accstatus];
 
 			$rowCnt++;

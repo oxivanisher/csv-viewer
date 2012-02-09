@@ -36,12 +36,19 @@ $GLOBALS[sources][$filename][fields][$cnt++] = "MB Archive";
 $GLOBALS[sources][$filename][fields][$cnt++] = "MB Total";
 $GLOBALS[sources][$filename][fields][$cnt++] = "Status";
 
-# Zimbra Account Usage Report
+# Gabi URL's
 $filename = "gabiUrls.inc.php"; $cnt = 0;
 $GLOBALS[sources][$filename][name] = "Gabi Urls";
 $GLOBALS[sources][$filename][fields][$cnt++] = "User";
 $GLOBALS[sources][$filename][fields][$cnt++] = "Date";
 $GLOBALS[sources][$filename][fields][$cnt++] = "URL";
+
+# WWW Data Dir Size
+$filename = "wwwSize.inc.php"; $cnt = 0;
+$GLOBALS[sources][$filename][name] = "WWW Dir Size Report";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Server";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Directory";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Size in MB";
 
 
 ?>
