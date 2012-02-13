@@ -29,11 +29,12 @@ $filename = "zimbraAccounts.inc.php"; $cnt = 0;
 $GLOBALS[sources][$filename][name] = "Zimbra Account Usage Report";
 $GLOBALS[sources][$filename][fields][$cnt++] = "Domain";
 $GLOBALS[sources][$filename][fields][$cnt++] = "User";
-$GLOBALS[sources][$filename][fields][$cnt++] = "MB Used";
-$GLOBALS[sources][$filename][fields][$cnt++] = "MB Quota";
-$GLOBALS[sources][$filename][fields][$cnt++] = "% Quota";
-$GLOBALS[sources][$filename][fields][$cnt++] = "MB Archive";
-$GLOBALS[sources][$filename][fields][$cnt++] = "MB Total";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Used";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Quota";
+$GLOBALS[sources][$filename][fields][$cnt++] = "% Q";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Archive";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Trash";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Total";
 $GLOBALS[sources][$filename][fields][$cnt++] = "Status";
 
 # Gabi URL's

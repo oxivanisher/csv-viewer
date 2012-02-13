@@ -21,7 +21,7 @@ function processFile($file) {
 	foreach (loadCsv($file) as $row) {
 		$ret[$rowCnt][0] = $serverName;
 		$ret[$rowCnt][1] = $row[1];
-		$ret[$rowCnt][2] = round($row[0] / 1024 / 1024, 2 ) ;
+		$ret[$rowCnt][2] = toMb($row[0]) ;
 		$rowCnt++;
 	}
 	return $ret;

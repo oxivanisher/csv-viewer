@@ -26,11 +26,12 @@ function processFile($file) {
 		if (strrpos($domain, ".archive") > 0) {
 			$tmpUser = substr($user, 0, strrpos($user, "-"));
 			$tmpDomain = substr($domain, 0, strrpos($domain, ".archive"));
-			$archiveDb[$tmpDomain][$tmpUser][mbarchive] = $row[1];
+			$archiveDb[$tmpDomain][$tmpUser][mbarchive] = toMb($row[1]);
 		} else {
-			$accountDb[$domain][$user][mbused] = $row[1];
-			$accountDb[$domain][$user][mbquota] = $row[2];
+			$accountDb[$domain][$user][mbused] = toMb($row[1]);
+			$accountDb[$domain][$user][mbquota] = toMb($row[2]);
 			$accountDb[$domain][$user][percentquota] = round(100 / $row[2] * $row[1]);
+			$accountDb[$domain][$user][trash] = toMb($row[4]);
 			$accountDb[$domain][$user][accstatus] = str_replace(" account)", "", str_replace("(", "", $row[3]));
 		}
 	}	
@@ -40,6 +41,7 @@ function processFile($file) {
 		$domainMbused = 0;
 		$domainMbquota = 0;
 		$domainMbarchive = 0;
+		$domainMbtrash = 0;
 		foreach ($domainData as $user => $userData) {
 			$ret[$rowCnt][0] = $domain;
 			$ret[$rowCnt][1] = $user;
@@ -52,14 +54,16 @@ function processFile($file) {
 			} else {
 				$ret[$rowCnt][5] = $archiveDb[$domain][$user][mbarchive];
 			}
-
-			$domainMbused = $domainMbused + $ret[$rowCnt][2];
-			$domainMbquota = $domainMbquota + $ret[$rowCnt][3];
-			$domainMbarchive = $domainMbarchive + $ret[$rowCnt][4];
-			
-			$ret[$rowCnt][6] = $ret[$rowCnt][2] + $ret[$rowCnt][5];
-			$ret[$rowCnt][7] = $userData[accstatus];
-
+		
+			$ret[$rowCnt][6] = $userData[trash];
+			$ret[$rowCnt][7] = $ret[$rowCnt][2] + $ret[$rowCnt][5];
+			$ret[$rowCnt][8] = $userData[accstatus];
+	
+			$domainMbused = $domainMbused + $userData[mbused];
+			$domainMbquota = $domainMbquota + $userData[mbquota];
+			$domainMbarchive = $domainMbarchive + $ret[$rowCnt][5];
+			$domainMbtrash = $domainMbtrash + $userData[trash];
+	
 			$rowCnt++;
 		}
 
@@ -69,8 +73,9 @@ function processFile($file) {
 		$ret[$rowCnt][3] = $domainMbquota;
 		$ret[$rowCnt][4] = round(100 / $domainMbquota * $domainMbused);
 		$ret[$rowCnt][5] = $domainMbarchive;
-		$ret[$rowCnt][6] = $domainMbused + $domainMbarchive;
-		$ret[$rowCnt][7] = "Total";
+		$ret[$rowCnt][6] = $domainMbtrash;
+		$ret[$rowCnt][7] = $domainMbused + $domainMbarchive;
+		$ret[$rowCnt][8] = "Total";
 
 		$rowCnt++;
 	}

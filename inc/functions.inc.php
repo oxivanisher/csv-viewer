@@ -126,4 +126,8 @@ function makeClickableURL($url) {
 	return preg_replace($in, $out, $url);
 }
 
+function toMb($size) {
+	return round($size / 1024 / 1024, 2);
+}
+
 ?>
