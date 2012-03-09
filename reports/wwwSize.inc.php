@@ -18,12 +18,17 @@ function processFile($file) {
 
 	$ret = null;
 	$rowCnt = 0;
+	$total = 0;
 	foreach (loadCsv($file) as $row) {
 		$ret[$rowCnt][0] = $serverName;
 		$ret[$rowCnt][1] = $row[1];
-		$ret[$rowCnt][2] = toMb($row[0]) ;
+		$ret[$rowCnt][2] = toMb($row[0]);
+		$total = $total + $row[0];
 		$rowCnt++;
 	}
+	$ret[$rowCnt][0] = $serverName;
+	$ret[$rowCnt][1] = "Total";
+	$ret[$rowCnt][2] = toMb($total);
 	return $ret;
 }
 
