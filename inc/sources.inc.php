@@ -52,4 +52,14 @@ $GLOBALS[sources][$filename][fields][$cnt++] = "Directory";
 $GLOBALS[sources][$filename][fields][$cnt++] = "Size in MB";
 
 
+# Mail Data Dir Size
+$filename = "mailSize.inc.php"; $cnt = 0;
+$GLOBALS[sources][$filename][name] = "Mail Dir Size Report";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Server";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Domain";
+$GLOBALS[sources][$filename][fields][$cnt++] = "User";
+$GLOBALS[sources][$filename][fields][$cnt++] = "Size in MB";
+
+
+
 ?>
