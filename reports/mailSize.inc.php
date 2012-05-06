@@ -1,11 +1,11 @@
 <?php
-$GLOBALS[mailReport][search] = "mailsize-";
+$GLOBALS["mailReport"]["search"] = "mailsize-";
 
 function runReport() {
     $finalRet = array();
 
-    foreach (getFilelist($GLOBALS[csv_path], ".csv") as $file) {
-        if (strrpos($file, $GLOBALS[mailReport][search]) > -1) {
+    foreach (getFilelist($GLOBALS["csv_path"], ".csv") as $file) {
+        if (strrpos($file, $GLOBALS["mailReport"]["search"]) > -1) {
             $tmpRet = processFile($file);
             $finalRet = array_merge($finalRet, $tmpRet);
         }
@@ -17,13 +17,13 @@ function processFile($file) {
 	$ret = null;
 	$accountDb = null;
 
-	$serverName = str_replace(".csv", "", str_replace($GLOBALS[mailReport][search], "", $file));
+	$serverName = str_replace(".csv", "", str_replace($GLOBALS["mailReport"]["search"], "", $file));
 
 	foreach (loadCsv($file) as $row) {
 		$colCnt = 0;
 		$tmpArray = split("/", $row[1]);
 		$tmpCnt = count($tmpArray);
-		$accountDb[$tmpArray[($tmpCnt - 2)]][$tmpArray[($tmpCnt - 1)]][mbused] = toMb($row[0]);
+		$accountDb[$tmpArray[($tmpCnt - 2)]][$tmpArray[($tmpCnt - 1)]]["mbused"] = toMb($row[0]);
 	}	
 
 	$rowCnt = 0;
@@ -33,9 +33,9 @@ function processFile($file) {
 			$ret[$rowCnt][0] = $serverName;
 			$ret[$rowCnt][1] = $domain;
 			$ret[$rowCnt][2] = $user;
-			$ret[$rowCnt][3] = $userData[mbused];
+			$ret[$rowCnt][3] = $userData["mbused"];
 
-			$domainMbused = $domainMbused + $userData[mbused];
+			$domainMbused = $domainMbused + $userData["mbused"];
 	
 			$rowCnt++;
 		}

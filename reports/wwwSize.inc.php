@@ -1,11 +1,11 @@
 <?php
-$GLOBALS[wwwReport][search] = "wwwsize-";
+$GLOBALS["wwwReport"]["search"] = "wwwsize-";
 
 function runReport() {
     $finalRet = array();
 
-    foreach (getFilelist($GLOBALS[csv_path], ".csv") as $file) {
-        if (strrpos($file, $GLOBALS[wwwReport][search]) > -1) {
+    foreach (getFilelist($GLOBALS["csv_path"], ".csv") as $file) {
+        if (strrpos($file, $GLOBALS["wwwReport"]["search"]) > -1) {
             $tmpRet = processFile($file);
             $finalRet = array_merge($finalRet, $tmpRet);
         }
@@ -14,7 +14,7 @@ function runReport() {
 }
 
 function processFile($file) {
-	$serverName = str_replace(".csv", "", str_replace($GLOBALS[wwwReport][search], "", $file));
+	$serverName = str_replace(".csv", "", str_replace($GLOBALS["wwwReport"]["search"], "", $file));
 
 	$ret = null;
 	$rowCnt = 0;

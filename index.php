@@ -66,10 +66,10 @@ require_once("inc/functions.inc.php");
 		<div class="tabbable tabs-below">
 			<div class="tab-content" id="content">
 			<?php
-				if (strrpos($_GET[file], ".csv") > 1) {
-					echo renderTable(loadCsv($_GET[file]));
-				} elseif (strrpos($_GET[file], ".inc.php") > 1) {
-					require_once($GLOBALS[reports_path] . "/" . $_GET[file]);
+				if (strrpos($_GET["file"], ".csv") > 1) {
+					echo renderTable(loadCsv($_GET["file"]));
+				} elseif (strrpos($_GET["file"], ".inc.php") > 1) {
+					require_once($GLOBALS["reports_path"] . "/" . $_GET["file"]);
 					echo renderTable(runReport());
 				} else {
 					echo "<h2>Files:</h2>";
@@ -88,7 +88,7 @@ require_once("inc/functions.inc.php");
 		<div class="bottombar">
 			<div class="fill">
 				<div class="container">
-					&copy; by <?php echo $GLOBALS[author]; ?>.
+					&copy; by <?php echo $GLOBALS["author"]; ?>.
 				</div>
 			</div>
 		</div>
