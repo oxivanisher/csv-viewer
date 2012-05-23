@@ -50,5 +50,21 @@ function processFile($file) {
 	return $ret;
 }
 
+function checkAlert() {
+    $finalRet = array();
+
+    foreach (getFilelist($GLOBALS["csv_path"], ".csv") as $file) {
+        if (strrpos($file, $GLOBALS["mailReport"]["search"]) > -1) {
+            $tmpRet = processFile($file);
+            $finalRet = array_merge($finalRet, $tmpRet);
+        }
+    }
+
+	foreach ($finalRet as $line) {
+		if ($line[3] > 1000) {
+			echo "ALERT: " . $line[2] . "@" . $line[1] . " on " . $line[0] . " uses more than 1000 MB\n";
+		}
+	}
+}
 
 ?>

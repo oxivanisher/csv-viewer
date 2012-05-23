@@ -12,5 +12,8 @@ function runReport() {
 	return $ret;
 }
 
+function runReport() {
+	true;
+}
 
 ?>
