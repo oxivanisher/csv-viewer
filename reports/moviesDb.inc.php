@@ -15,10 +15,10 @@ function runReport() {
 	$rowCnt = 0;
 	foreach (loadCsv("movies.csv") as $row) {
 		#"<img src='" . $row[8] . "' style='max-height: 16px; max-width: 16px'/>"
-		$ret[$rowCnt][0] = "<abbr title='" . $row[2] . " " . $row[1] . "'>" . htmlspecialchars($row[0]) . "</abbr>";
+		$ret[$rowCnt][0] = "<abbr title='" . $row[2] . " " . $row[1] . "'>" . htmlentities($row[0]) . "</abbr>";
 		$ret[$rowCnt][1] = $row[3];
 		$ret[$rowCnt][2] = "<abbr title='" . $row[4] . "'>" . $row[5] . "</abbr>";
-		$ret[$rowCnt][3] = "<abbr title='" . $row[7] . "'>" . htmlspecialchars($row[6]) . "</abbr>";
+		$ret[$rowCnt][3] = "<abbr title='" . $row[7] . "'>" . htmlentities($row[6]) . "</abbr>";
 		$rowCnt++;
 	}
 	return $ret;
