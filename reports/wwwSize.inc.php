@@ -32,7 +32,7 @@ function processFile($file) {
 	return $ret;
 }
 
-function runReport() {
+function checkAlert() {
     true;
 }
 ?>

@@ -23,7 +23,7 @@ function runReport() {
 	return $ret;
 }
 
-function runReport() {
+function checkAlert() {
 	true;
 }
 
