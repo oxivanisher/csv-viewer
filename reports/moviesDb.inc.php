@@ -13,7 +13,7 @@
 function runReport() {
 	$ret = null;
 	$rowCnt = 0;
-	foreach (loadCsv("urls.csv") as $row) {
+	foreach (loadCsv("movies.csv") as $row) {
 		$ret[$rowCnt][0] = "<img src='" . $row[8] . "' style='max-height: 20px; max-width: 20px'/>" . "<abbr title='" . $row[2] . " " . $row[1] . "'>" . $row[0] . "</abbr>";
 		$ret[$rowCnt][1] = $row[3];
 		$ret[$rowCnt][2] = "<abbr title='" . $row[4] . "'>" . $row[5] . "</abbr>";
