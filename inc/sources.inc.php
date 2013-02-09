@@ -61,5 +61,11 @@ $GLOBALS["sources"][$filename]["fields"][$cnt++] = "Domain";
 $GLOBALS["sources"][$filename]["fields"][$cnt++] = "User";
 $GLOBALS["sources"][$filename]["fields"][$cnt++] = "Size in MB";
 
-
+# Movie Database
+$filename = "moviesDb.inc.php"; $cnt = 0;
+$GLOBALS["sources"][$filename]["name"] = "Movie Database";
+$GLOBALS["sources"][$filename]["fields"][$cnt++] = "Title";
+$GLOBALS["sources"][$filename]["fields"][$cnt++] = "Duration";
+$GLOBALS["sources"][$filename]["fields"][$cnt++] = "Medium";
+$GLOBALS["sources"][$filename]["fields"][$cnt++] = "Loaned";
 ?>
