@@ -3,6 +3,7 @@
 # Functions
 
 function loadCsv($file) {
+    ini_alter('auto_detect_line_endings',TRUE);
     $row = 0;
     $return = false;
     if (($handle = fopen($GLOBALS["csv_path"] . $file, "r")) !== FALSE) {
@@ -13,6 +14,7 @@ function loadCsv($file) {
         }
         fclose($handle);
     }
+    ini_restore('auto_detect_line_endings');
     return $return;
 }
 
